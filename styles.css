@@ -1,0 +1,82 @@
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.search-group {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    min-height: 10vh;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    background-color: #fff;
+}
+input {
+    padding: 0.5rem;
+    outline: none;
+    font-size: 1rem;
+}
+.search-btn {
+    padding: 0.5rem 3rem;
+    margin-left: 10px;
+    background-color: blue;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+
+}
+.next-page {
+    position: fixed;
+    bottom: 10%;
+    right: 0%;
+    padding: 0.5rem 0.5rem;
+    border: 1px solid #000;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+
+}
+.image-gallery {
+    width: 90%;
+    margin: 12vh 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    row-gap: 10px;
+    column-gap: 10px;
+    justify-content: center;
+}
+.image-gallery div {
+    position: relative;
+}
+img {
+    margin-left: 5px;
+    min-height: 300px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: underline;
+    color: #fff;
+    margin-left: 10px;
+    font-weight: bold;
+}

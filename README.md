@@ -1,1 +1,1 @@
-# rsschool-image-gallery
+# image-gallery

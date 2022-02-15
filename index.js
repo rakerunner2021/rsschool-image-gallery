@@ -2,6 +2,7 @@ const authKey = "6BHOwRv3X3gzKA4_3kC99B3uBzsjOWZguuZSyJVin-4";
 const nextBtn = document.querySelector('.next-page');
 const input = document.querySelector('input');
 const searchBtn = document.querySelector('.search-btn');
+const clearBtn = document.querySelector('.clear-btn');
 
 let pageNumber = 1;
 let search = false;
@@ -13,7 +14,7 @@ input.addEventListener('input', (e) => {
 })
 
 async function createPhotos (pageNumber) {
-    const data = await fetch (`https://api.unsplash.com/search/photos?&per_page=15&page=${pageNumber}&query=office&client_id=6BHOwRv3X3gzKA4_3kC99B3uBzsjOWZguuZSyJVin-4`, {
+    const data = await fetch (`https://api.unsplash.com/search/photos?&per_page=15&page=${pageNumber}&query=cyberpunk&client_id=6BHOwRv3X3gzKA4_3kC99B3uBzsjOWZguuZSyJVin-4`, {
         method: "GET",
         headers: {
             Accept: "application/json",
@@ -25,10 +26,8 @@ async function createPhotos (pageNumber) {
  console.log(result);
  result.results.forEach((photo) => {
     const pic = document.createElement('div');
-    pic.innerHTML = `<img src=${photo.urls.regular}>
-        
-    <a href=${photo.urls.regular}>Download</a> 
-    `;
+    pic.innerHTML = `<a href=${photo.urls.regular}><img src=${photo.urls.regular}></a>`;
+    
     document.querySelector('.image-gallery').appendChild(pic); 
  });
 }
@@ -46,10 +45,7 @@ async function searchPhotos (query, pageNumber) {
  console.log(result);
  result.results.forEach((photo) => {
     const pic = document.createElement('div');
-    pic.innerHTML = `<img src=${photo.urls.regular}>
-        
-    <a href=${photo.urls.regular}>Download</a> 
-    `;
+    pic.innerHTML = `<a href=${photo.urls.regular}><img src=${photo.urls.regular}></a>`;
     document.querySelector('.image-gallery').appendChild(pic); 
  });
 }
@@ -78,4 +74,22 @@ nextBtn.addEventListener('click', () => {
         searchPhotos(query, pageNumber)
     }
 })
+
+input.addEventListener('keyup', (e) =>{
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        searchBtn.click();
+    }
+})
+function showicon () {
+    const searchField = input.value;
+    
+    if (searchField <= 0) document.body.classList.remove("active");
+    else document.body.classList.add("active");
+
+    clearBtn.addEventListener('click', () => {
+        input.value = "";
+        document.body.classList.remove("active");
+    })
+}
 createPhotos(pageNumber);

@@ -9,11 +9,33 @@
 </head>
 <body>
     <div class="search-group">
-        <input type="text" class="search-form">
-        <div class="search-btn">Search</div>
+        <div class="logo">
+            <span class="logo-title">Unsplash API</span>
+        </div>
+        <input type="text" oninput="return showicon()" class="search-form" placeholder="search" autofocus autocomplete="off">
+        <div class="search-btn"></div>
+        <div class="clear-btn">
+            <span class="close"></span>
+        </div>
     </div>
     <div class="image-gallery"></div>
     <div class="next-page">next page</div>
+    <div class="footer">
+        <div class="footer-gh">
+            <ul class="footer-gh-list">
+                <li class="footer-gh-item">©</li>
+                <li class="footer-gh-item">2022</li>
+                <li class="footer-gh-item"><a class="footer-gh-link" href="https://github.com/rakerunner2021">github</a></li>
+            </ul>
+        </div>
+        <div class="footer-year">
+            Image gallery
+        </div>
+        <div class="footer-rs">
+            <p class="footer-rs-disc">
+                <a class="footer-rs-link" href="https://rs.school/js/">Rolling Scopes School</a>
+            </p>
+        </div>
     <script src="./index.js"></script>
 </body>
 </html>
